@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sistem Diskon Toko Online</title>
+</head>
+<body>
+  <h2>Hitung Harga Akhir Setelah Diskon</h2>
+  <input type="number" id="totalBelanja" placeholder="Masukkan total belanja">
+  <button onclick="prosesDiskon()">Hitung</button>
+
+  <p id="hasil"></p>
+
+  <script>
+    function hitungHargaAkhir(totalBelanja) {
+      let diskon = 0;
+
+      if (totalBelanja > 1000000) {
+        diskon = 0.15;
+      } else if (totalBelanja > 500000) {
+        diskon = 0.10;
+      } else {
+        diskon = 0;
+      }
+
+      let hargaAkhir = totalBelanja - (totalBelanja * diskon);
+      return hargaAkhir;
+    }
+
+    function prosesDiskon() {
+      let input = document.getElementById("totalBelanja").value;
+      let totalBelanja = parseInt(input);
+      let hasil = hitungHargaAkhir(totalBelanja);
+
+      document.getElementById("hasil").innerText =
+        "Total belanja: Rp" + totalBelanja +
+        "\nHarga akhir setelah diskon: Rp" + hasil;
+    }
+  </script>
+</body>
+</html>
